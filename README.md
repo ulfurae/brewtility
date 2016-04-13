@@ -1,5 +1,5 @@
 # Brewtility
-A website wher users can explore ingredients, calculate stuff and make their own brew recipe.
+A site where users can explore ingredients, calculate stuff and make their own brew recipe.
 
 Register as a new user, sign in and create ALL the recipies. Then log in again and look at your beautilful recipes.
 
