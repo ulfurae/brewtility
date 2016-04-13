@@ -1,0 +1,24 @@
+extends layout
+
+block content
+
+	div.header-div
+		h1.header= ingredient
+		hr.header
+	br
+	ul.ingred-list
+		each p in data
+			if(p.description || useNonDescriptionItems)
+				.post
+					div(style='display:inline-block')
+						if(ingredient=='Adjuncts')
+							h3= '- ' + p.name
+							hr(style='margin-left:12px;')
+						else
+							h3= p.name
+							hr
+					p= p.description
+					if(p.alphaAcidMin)
+						u.text-danger= 'Acid: ' + p.alphaAcidMin
+					if(p.alphaAcidMax)
+						u.text-danger= ' -> ' + p.alphaAcidMax

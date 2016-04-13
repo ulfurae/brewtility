@@ -1,0 +1,76 @@
+
+doctype html
+html(lang='en')
+	head
+		block head
+			meta(charset='utf-8')
+			title= title
+			link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css')
+			link(rel='stylesheet', href='/stylesheets/style.css')
+			link(rel='stylesheet', href='/stylesheets/sidebar.css')
+			link(rel='stylesheet', href='/stylesheets/recipeCreator.css')
+			script(type='text/javascript', src='/jquery/dist/jquery.js')
+			script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js")
+
+	body
+		ul.nav.navbar-nav.navbar-right(class='login-banner')
+			if session && session.user
+				li
+					a(href='/recipes/myRecipes')= session.user.fullname
+				li
+					a(href='/logout') Sign out
+			else
+				li
+					a(href='/register') Create account
+				li.dropdown
+					a.dropdown-toggle(href='#', data-toggle='dropdown')
+						| Sign in 
+						b.caret
+					ul.dropdown-menu(style='padding:15px; min-width:250px')
+						li
+							.row
+								.col-md-12
+									form.form(id='loginform',role='form', method='post', action='/login', accept-charset='UTF-8')
+										.form-group
+											label.sr-only(for='username') Username
+											input.form-control(type='text', placeholder='username', required='', name='username')
+										.form-group
+											label.sr-only(for='password') Password
+											input.form-control(type='password', placeholder='password', required='', name='password')
+										.form-group
+											button.btn.btn-success.btn-block(type='submit') Sign in
+		#wrapper
+			#sidebar-wrapper
+				ul.sidebar-nav
+					li.sidebar-brand
+						a(href='/')
+							img(src="/images/brewtilityLogo.png", class="logo")
+					li.sidebar-dropdown
+						span.glyphicon.glyphicon-tag
+						|  Ingredients	
+					li
+						a(href='/ingredients/fermentables') Fermentables
+					li
+						a(href='/ingredients/adjuncts') Adjuncts
+					li
+						a(href='/ingredients/hops') Hops
+					li
+						a(href='/ingredients/yeasts') Yeasts
+
+					li.sidebar-dropdown
+						span.glyphicon.glyphicon-filter
+						|  Calculators 
+					li
+						a(href='/calculators/priming') Priming Sugar
+					li
+						a(href='/calculators/ABV') Alchohol By Volume
+					li
+						a(href='/calculators/hydrometerAdjust') Hydrometer Adjustments
+					if session && session.user
+						hr
+						li
+							a(href='/recipes/myRecipes') My Recipes
+						li
+							a(href='/recipes/create') Create Recipe
+		main
+			block content

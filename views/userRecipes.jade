@@ -1,0 +1,23 @@
+extends layout
+
+block append head
+	link(rel='stylesheet' href='/stylesheets/viewRecipe.css')
+
+block content
+
+	div.header-div
+		h1.header My Recipes
+		hr.header
+	br
+
+	if(recipes)
+		ul.ingred-list
+			each recipe in recipes
+				form(method='post' action='/recipes/myRecipes' name='recipeid' value=recipe.recipeid, style='padding-top:0px; padding-left:12px; text-align:left; width:300px').recipe-info.recipe
+
+					input(type='text', value=recipe.recipeid, name='id', height='0px').hidden
+					div(style='display:inline-block; margin-top:-10px')
+						h2(name=recipe.recipeid)= recipe.recipe_name
+						p.text-warning= '- ' + recipe.beer_style
+						button(type='submit').btn.btn-sm.btn-default see recipe
+				br

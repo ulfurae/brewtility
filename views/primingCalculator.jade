@@ -1,0 +1,28 @@
+extends layout
+
+block append head
+	script(type="text/javascript", src='/javascripts/primingCalculator.js')
+
+block content
+	div.header-div
+		h1.header Priming Calculator
+		hr.header
+	p
+		i.text-muted Measurements require metric input
+
+	form(style='max-width:270px; min-width:170px')#calculator
+		div.form-group
+
+			label.recipe-big Amount of beer:
+			input(type='number', placeholder='liters',value="15",step="0.1", min="0",).form-control.recipe-small.end#amountField
+			i.small.text-muted.margin-up *measured in liters
+		.form-group
+			label.recipe-big Volumes of C02:
+			input(type='number', placeholder='grams/liter', value="2.0",min="0", max="50", step="0.1").form-control.recipe-small.end#targetCo2Field
+			i.small.text-muted.margin-up *measured in grams/liter
+		.form-group
+			label.recipe-big Temperature of beer:
+			input(type='number', placeholder='°celsius', value="20",min="0", step="0.5").form-control.recipe-small.end#temperatureField
+			i.small.text-muted.margin-up *measured in °celcius
+		.form-group
+			button(type='submit').btn.btn-default.calculate Calculate

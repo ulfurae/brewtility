@@ -1,0 +1,85 @@
+extends layout
+
+block append head
+	link(rel='stylesheet', href='/stylesheets/recipeCreator.css')
+	script(type='text/javascript', src='/javascripts/createRecipe.js')
+
+block content
+	h1.header Create Recipe
+
+	if(!done)
+		.col-xs-12.recipe-background
+			form(method='post').recipe-form
+				.col-md-6
+					h3 Fermentables
+					.fermentable-form
+						.fermentable
+							.form-group
+								input(type='text', required='yes',placeholder='Fermentable Name' name='fermentableName').form-control.recipe-big
+								input(type='text', placeholder='Amount (g)', required='yes', name='fermentableAmount').form-control.recipe-small.end
+					.form-group
+						button(type='button').btn-success.add-button.add-fermentable
+							span.glyphicon.glyphicon-plus
+						button(type='button').btn-danger.minus-button.remove-fermentable
+							span.glyphicon.glyphicon-minus
+
+				.col-md-6
+					h3 Hops
+					.hop-form
+						.hop
+							.form-group
+								input(type='text', placeholder='Hop Name', name='hopName', required='yes').form-control.recipe-big
+								input(type='text', placeholder='Amount (g)', name='hopAmount', required='yes').form-control.recipe-small.end
+							.form-group
+								select.form-control.recipe-big(name='hopAdditionType')
+									option Boil
+									option Dry Hop
+									option Whirlpool
+									option Flame Out
+								input(type='text', placeholder='Time (min)', name='hopTime', required='yes').form-control.recipe-small.end
+					.form-group
+						button(type='button').btn-success.add-button.add-hop
+							span.glyphicon.glyphicon-plus
+						button(type='button').btn-danger.minus-button.remove-hop
+							span.glyphicon.glyphicon-minus
+
+				.block
+					.col-md-6
+						h3 Yeast
+						.form-group
+							input(type='text', placeholder='Brand Name', name='yeastBrandName', required='yes').form-control
+						.form-group
+							input(type='text', placeholder='Variety', name='yeastVariety', required='yes').form-control
+						.form-group
+							textarea(rows='3', placeholder='Other Info', name='yeastInfo').form-control
+
+					.col-md-6
+						h3 Notes
+						.form-group
+							textarea(rows='8', placeholder='Notes', name='beerInfoNotes').form-control
+				.col-xs-12
+					h3 Information
+					.row
+						.col-md-6
+								.form-group
+									input(type='text', placeholder='Recipe Name', name='beerInfoRecipeName', required='yes').form-control
+						.col-md-6
+								.form-group
+									input(type'text', placeholder='Beer Style', name='beerInfoBeerStyle').form-control
+
+				.col-xs-12
+					button.btn-lg.btn-warning.submit-button Create Recipe
+
+	else if (done=='yes')
+		br
+		span Congratulations! You just created a new recipe called 
+		span.lead.text-warning= "'"+name+"'" 
+		br
+		br
+		b
+			a(href="/recipes/create") Make a new recipe!
+	else if (done=='no')
+		p There was an error. Try again.
+		br
+		b
+			a(href="/recipes/create") Make a new recipe

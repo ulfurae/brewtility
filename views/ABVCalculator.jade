@@ -1,0 +1,20 @@
+extends layout
+
+block append head
+	script(type="text/javascript", src='/javascripts/ABVCalculator.js')
+
+block content
+	div.header-div
+		h1.header Alcohol By Volume Calculator
+		hr.header
+	p
+		i.text-muted Gravity unit: SG (1.xxx)
+	form(style='width:230px')#calculator
+		div.form-group
+			label.recipe-big Original Gravity:
+			input(type="number", placeholder="1.000", value="1.031", min="0.001", max="5", step="0.001").form-control.recipe-small.end#originalGravityField
+		div.form-group
+			label.recipe-big Final Gravity:
+			input(type="number", placeholder="1.000", value="1.001", min="0.001", max="5", step="0.001").form-control.recipe-small.end#finalGravityField
+		.form-group
+			button(type='submit').btn.btn-default.calculate Calculate

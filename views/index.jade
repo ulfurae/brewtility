@@ -1,0 +1,23 @@
+extends layout
+
+block content
+	if session && session.user
+		h2.header Hi there!
+		br
+		p
+			span Welcome brewmaster   
+			b.text-danger= session.user.fullname + '.'
+		br
+		p Have a nice time exploring ingrediences, calculating stuff and creating your own recepies.
+	else
+		p
+			span.h3 Welcome to 
+			span.h2.header.text-warning= title
+		br
+		p - Explore the finest ingredience!
+		p - Calculate stuff!
+		p - Create an account and you can create and save your own recepies!
+	br
+	br
+	br
+	img(src='/images/giphy.gif',style="width:200px")

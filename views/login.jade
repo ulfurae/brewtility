@@ -1,0 +1,7 @@
+extends layout
+
+block content
+	p Welcome to #{title}
+	if alert
+		br
+		.alert.alert-danger.navbar-right= alert

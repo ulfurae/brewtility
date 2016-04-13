@@ -1,0 +1,120 @@
+@font-face {
+    font-family: Bakersfield;
+    src: url(bflb.ttf);
+}
+@font-face {
+    font-family: Geomanist;
+    src: url(grw.ttf);
+}
+@font-face {
+    font-family: OTF;
+    src: url(Monthoers.ttf);
+}
+
+body { font: 16px Bakersfield;
+background: #FFFFEF; }
+
+form { font: 14px Geomanist; }
+
+main {
+	margin-left:255px;
+	margin-right: 10px;
+	padding: 15px;
+}
+
+
+.header {
+	font-family: OTF;
+	text-transform: lowercase;
+	margin-top: 0px;
+	margin-bottom:10px;
+	line-height:0.9em;
+	#font-weight:bold;
+}
+.header-div {
+	display: inline-block;
+	margin-bottom: 20px;
+}
+
+.logo {
+	font-family: OTF;
+	letter-spacing: 2px;
+	margin: 0px;
+	margin-left:-15px;
+	margin-bottom:5px;
+}
+
+.login-banner {
+  color: brown;
+	margin:0px;
+ }
+
+a { color: #562F00; }
+a:link { color: #562F00; }
+a:hover { color: black; }
+a:active { color: black; }
+a:link:active { color: black; }
+
+.ingred-list {
+	padding: 0;
+	font: 17px Geomanist; 
+	max-width: 600px;
+	min-width: 200px;
+}
+
+.ingred-list h3 {
+	margin: 0;
+	#font-weight: bold;
+	color: #111;
+}
+
+.ingred-list hr {
+	margin: 3px 0 6px 0;
+	border-bottom: 1px dotted #444;
+
+}
+
+.post {
+	border: 0px dotted #555; 
+	padding: 4px;
+	margin-bottom:10px;
+	color: #333;
+}
+
+.btn.outline {
+    background: rgba(255,255,0,0.08);
+    padding: 12px 22px;
+		border-radius: 20px;
+}
+.btn-primary.outline {
+    border: 2px solid #562F00;
+    color: #562F00;
+}
+.btn-primary.outline:hover, .btn-primary.outline:focus, .btn-primary.outline:active, .btn-primary.outline.active, .open > .dropdown-toggle.btn-primary {
+    color: #3C825A;
+    border-color: #3C825A;
+}
+.btn-primary.outline:active, .btn-primary.outline.active {
+    color: #000;
+    box-shadow: none;
+		background: rgba(60,130,90,0.5);
+}
+
+.results-st {
+	color: green;
+	font-size:32px;
+}
+
+a:focus, a:active, 
+button::-moz-focus-inner,
+input[type="reset"]::-moz-focus-inner,
+input[type="button"]::-moz-focus-inner,
+input[type="submit"]::-moz-focus-inner,
+select::-moz-focus-inner {
+    border: 0;
+    outline : 0;
+}
+
+.hidden {
+	display: hidden;
+}

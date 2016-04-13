@@ -1,0 +1,26 @@
+.recipe {
+	background-color: #F2E6AB;
+	border-radius: 8px;
+	max-width: 450px;
+	padding: 5px;
+	padding-left:12px;
+padding-right:12px;
+}
+
+.ingredient-list {
+	list-style-type: none;
+	font-size: 1em;
+}
+
+.secion-name {
+	text-align: center;
+}
+
+table {
+	margin: 15px;
+	width: 100%;
+}
+
+td {
+	margin-left: 10px;
+}

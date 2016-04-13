@@ -1,0 +1,56 @@
+extends layout
+
+block append head
+	link(rel='stylesheet' href='/stylesheets/viewRecipe.css')
+block content
+
+	div.header-div
+		h1.header View Recipes
+		hr.header
+	br
+
+	if(recipe)
+		.recipe-info.recipe
+			h2.secion-name= recipe.recipeInfo.recipe_name
+			p.secion-name= '- ' + recipe.recipeInfo.beer_style
+			if(recipe.recipeInfo.notes)
+				br
+				p.secion-name.text-muted= 'notes: ' + recipe.recipeInfo.notes
+		br
+
+		.recipe-fermentables.recipe
+			h2  Fermentables
+			table.ingredient-list
+				tbody
+				each ferm in recipe.fermentables
+					tr
+						td= ferm.fermentable_name
+					tr
+						td.text-success= '- ' + ferm.amount + ' grams'
+		br
+
+		.recipe-hops.recipe
+			h2  Hops
+
+			table.ingredient-list
+				each hop in recipe.hops
+					tr
+						td= hop.hop_name
+					tr
+						td.text-success= '- ' + hop.amount + ' grams'
+					tr
+						td.text-success= '- ' + hop.addition_type + ' for ' + hop.time_in_wort + ' min'
+		br
+
+		.recipe-yeast.recipe
+			h2  Yeast
+			table.ingredient-list
+				tr
+					td= recipe.yeast.brand_name
+				tr
+					td.text-success=	'- ' + recipe.yeast.yeast_variety
+
+				if(recipe.yeast.other_info)
+					tr
+						td(colspan='2')= 'info: ' + recipe.yeast.other_info
+
